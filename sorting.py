@@ -3,14 +3,11 @@ import random
 
 
 class Sorting(object):
-    """Constructor creates new data on every instance of the class."""
 
     def __init__(self):
-        self.numbers_list = []
-        # List comprehension to generate integers 1 through 10.
-        self.data = [x for x in range(1, 11)]
-        random.shuffle(self.data)
-        self.numbers_list = self.data
+        """Constructor produces a new list of shuffled integers for every object."""
+        self.numbers_list = [x for x in range(1, 11)]  # List comprehension to generate integers 1 through 10.
+        random.shuffle(self.numbers_list)
         print(self.numbers_list)
    
     def bubble_sort(self):
@@ -21,7 +18,8 @@ class Sorting(object):
                     self.numbers_list[j], self.numbers_list[j + 1] = self.numbers_list[j + 1], self.numbers_list[j]
         return self.numbers_list
 # TODO add insertion and merge sort algorithms
-# TODO choose better variable name for data variable
+# TODO add functionality for numbers list to contain as many integers as necessary
+# TODO allow user to choose which numbers they would like sorted
 
 
 a = Sorting()
