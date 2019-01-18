@@ -1,5 +1,5 @@
 """ Python script to implement some classic sorting algorithms; bubble, insertion and merge sort algorithms."""
-import random
+from random import shuffle
 
 
 class Sorting(object):
@@ -18,12 +18,16 @@ class Sorting(object):
             print("Enter number", i + 1)
             number = int(input())
             self.numbers_list.append(number)
-            random.shuffle(self.numbers_list)
+        return self.numbers_list
+
+    def shuffle_user_input(self):
+        shuffle(self.numbers_list)
         return self.numbers_list
 
     def bubble_sort(self):
         """This sorting algorithm is a comparison-based algorithm in which each
-        pair of adjacent elements is compared and the elements are swapped if they are not in order. Returns a sorted list."""
+        pair of adjacent elements is compared and the elements are swapped if they are not in order. Returns a sorted
+        list."""
         for i in range(len(self.numbers_list) - 1):
             for j in range(len(self.numbers_list) - 1 - i):
                 if self.numbers_list[j] > self.numbers_list[j + 1]:
@@ -52,11 +56,13 @@ class Sorting(object):
 
 
 # TODO add merge sort algorithm
+# TODO add boolean check to see if original input list is already sorted
 
 
 # Objects for debugging purposes
 a = Sorting()
 print("Original list:", a.get_user_input())
+print("Shuffled list:", a.shuffle_user_input())
 a.bubble_sort()
 # a.insertion_sort()
 print("Sorted list:", a.numbers_list)
